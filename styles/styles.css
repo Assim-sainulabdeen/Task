@@ -78,12 +78,13 @@ body{
     padding: 20px 0;;
 }
 .innerRoutine2{
-    top: 40px;
+    top: 35px;
     left: 53.5%;
+    z-index: 1;
 }
 
 .innerRoutineBottom{
-    bottom: 25px;
+    bottom: 30px;
     left: 53.5%;
 }
 .time-12{
@@ -91,5 +92,5 @@ body{
 }
 
 .plan{
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
