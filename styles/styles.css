@@ -9,7 +9,7 @@ body{
 }
 
 .heading{
-    font-size: 16px;
+    font-size: 18px;
 }
 .time{
     font-size: 12px;
@@ -58,7 +58,7 @@ body{
     width: 50%;
 }
 .innerTimeWidth2{
-    width: 44.3%;
+    width: 44.1%;
 }
 .borderColor{
     border-left: 3px solid #699ecc;

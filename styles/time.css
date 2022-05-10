@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.heading{
+    font-size: 18px;
+}
+.time{
+    font-size: 12px;
+    padding-left: 5px;
+    color:#a5adc2;
+}
+
+.horizontalColoring{
+    color:#a5adc2;
+    margin-bottom: 0;
+}
+
+#main{
+    height: 600px;
+}
+
+.clear{
+    clear: both;
+}
+.moveLeft{
+    float: left;
+}
+.moveRight{
+    float: right;
+}
+.smallWidth{
+    width: 3%;
+}
+.largeWidth{
+    width: 96%;
+}
+.fs-14{
+    font-size: 14px;
+}
+ .fs-12{
+    font-size: 12px;
+}
+.timeColor{
+    color: #a5a7a8;
+}
+.schedule{
+    height: 30px;
+}
+
+.height{
+    height: 15px;
+}
