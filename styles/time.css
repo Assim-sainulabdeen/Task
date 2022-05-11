@@ -23,7 +23,7 @@ body{
 }
 
 #main{
-    height: 600px;
+    height: 1200px;
 }
 
 .clear{
@@ -35,6 +35,13 @@ body{
 .moveRight{
     float: right;
 }
+
+.elementHeight{
+    height: 120px;
+}
+.fs-12{
+    font-size: 12px;
+}
 .smallWidth{
     width: 3%;
 }
@@ -44,16 +51,7 @@ body{
 .fs-14{
     font-size: 14px;
 }
- .fs-12{
-    font-size: 12px;
-}
+
 .timeColor{
     color: #a5a7a8;
-}
-.schedule{
-    height: 30px;
-}
-
-.height{
-    height: 15px;
 }

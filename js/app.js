@@ -1,3 +1,4 @@
+
 var data = [
     {
     start: 0,
@@ -46,6 +47,50 @@ var data = [
     }
 ];
 
-data.forEach(element =>{
-    console.log(element);
-})
+
+let startTime =8*60 ;
+let endTime = 18*60;
+let count  = 1;
+
+let tempdata = -1;
+
+
+
+for (var i = 0; i <= (endTime-startTime) / 60 ; i++){
+
+    let hour = Math.floor((startTime + (i*30)) /60);
+    let minute = (((startTime + i*30 ) % 60) +"0").slice(0, 2)
+
+    var tempValue = 0;
+    tempdata = 0;
+
+    if(data[i].start !=0 ){
+        tempValue = data[i].start - (data[i-1].start + data[i-1].duration);
+    }
+
+    if(tempValue < 0 && tempdata == 0 ){
+        for (var j = i; j < (endTime-startTime) / 60; j++){
+          tempdata = data[j].start-(data[j-1].start + data[j-1].duration);
+          if(tempdata < 0){
+            count++;
+          }else{
+            break;
+          }
+        }
+    }
+
+    $("#content").append(`
+        <div class="px-4">
+            <div class="fs-14 moveLeft smallWidth timeColor">
+                <span class="moveRight">${hour + ":" + minute}</span>
+            </div>
+
+            <div class="moveLeft largeWidth"></div>
+
+        </div>
+    `);
+
+
+}
+
+
