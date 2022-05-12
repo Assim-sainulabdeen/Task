@@ -48,47 +48,76 @@ let data = [
 ];
 
 
-let starstartTimeime =8*60 ;
-let endTime = 18*60;
-let count  = 1;
+let getTimeArray = () =>{
+    let timeInterval = 30;
+    let times = [];
+    let startTime = 60*8;
+    endTime = 18*60;
+    for (let i=0; startTime <= endTime; i++) {
+    let hh = Math.floor(startTime/60);
+    let mm = (startTime%60);
+    times[i] = ("" + (hh % 12)).slice(-2) + ':' + ("0" + mm).slice(-2);
 
-let tempdata = -1;
-
-
-
-for (let i = 0; i <= (endTime-starstartTimeime) / 60 ; i++){
-
-    let hour = Math.floor((starstartTimeime + (i*30)) /60);
-    let minute = (((starstartTimeime + i*30 ) % 60) +"0").slice(0, 2)
-
-    let tempValue = 0;
-    tempdata = 0;
-
-    if(data[i].start !=0 ){
-        tempValue = data[i].start - (data[i-1].start + data[i-1].duration);
+    if (times[i] == "0:00"){
+        times[i] = "12:00";
+    }else if (times[i] == "0:30"){
+        times[i]="12:30";
     }
-
-    if(tempValue < 0 && tempdata == 0 ){
-        for (let j = i; j < (endTime-starstartTimeime) / 60; j++){
-          tempdata = data[j].start-(data[j-1].start + data[j-1].duration);
-          if(tempdata < 0){
-            count++;
-          }else{
-            break;
-          }
-        }
+    startTime = startTime + timeInterval;
+  
     }
+    return times;
+}
+let time = getTimeArray();
 
-    $("#content").append(`
-        <div class="px-4">
-            <div class="fs-14 moveLeft smallWidth timeColor">
-                <span class="moveRight">${hour + ":" + minute}</span>
-            </div>
+for (let i =0 ; i < time.length; i++){
 
-            <div class="moveLeft largeWidth"></div>
+    if(time.indexOf(time[i]) % 2 == 0){
+        $("#timecontent").append(
+            `<div class="elementHeight fs-13 moveRight">${time[i]}</div>`
+        )
+    }else{
+        $("#timecontent").append(
+            `<div class="elementHeight fs-11 moveRight">${time[i]}</div>`    
+        )
+    }  
+}
 
-        </div>
-    `);
+for (let i = 0; i< data.length; i++){
+
+    let height = "height:"+ (data[i].duration)*2+"px";
 
 
+    // let sample = 0;
+    // if(data[i].start == 0){
+        // $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor" style="${height}">${data[i].title}</div>
+        //  `);
+
+
+         if ( (i-1) >=0 && data[i].start < ( data[i-1].start + data[i-1].duration) ){
+                $("#tasks").append(`
+                    <div class="fs-13 bodyBackgrounColor borderColor w-50 float-end" style="${height};" >${data[i].title}</div>
+                `)
+         }else{
+            $("#tasks").append(`
+            <div class="fs-13 bodyBackgrounColor borderColor w-100 " style="${height};" >${data[i].title}</div>
+        `)
+         }
+    // if(start[i] < start+dur [i-1]) 
+    //     // its overlapping
+    //     // show event - float right, width 50
+    // else
+    //     // Not overlapping
+    //     // show event - width 100
+        
+        
+    // }else if(data[i].start !=0){
+    //     sample =  data[i].start-(data[i-1].start + data[i-1].duration)
+    // }
+
+    // if (data[i].start != 0){
+    //     sample =  data[i].start - (data[i-1].start + data[i-1].duration)
+    //     console.log(sample)
+    // }
 }
