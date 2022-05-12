@@ -35,8 +35,11 @@ body{
 .moveRight{
     float: right;
 }
+.fs-14{
+    font-size: 14px;
+}
 
-.elementHeight{
+/* .elementHeight{
     height: 120px;
 }
 .fs-12{
@@ -48,10 +51,8 @@ body{
 .largeWidth{
     width: 96%;
 }
-.fs-14{
-    font-size: 14px;
-}
+
 
 .timeColor{
     color: #a5a7a8;
-}
+} */

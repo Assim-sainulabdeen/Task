@@ -1,5 +1,5 @@
 
-var data = [
+let data = [
     {
     start: 0,
     duration: 15,
@@ -48,7 +48,7 @@ var data = [
 ];
 
 
-let startTime =8*60 ;
+let starstartTimeime =8*60 ;
 let endTime = 18*60;
 let count  = 1;
 
@@ -56,12 +56,12 @@ let tempdata = -1;
 
 
 
-for (var i = 0; i <= (endTime-startTime) / 60 ; i++){
+for (let i = 0; i <= (endTime-starstartTimeime) / 60 ; i++){
 
-    let hour = Math.floor((startTime + (i*30)) /60);
-    let minute = (((startTime + i*30 ) % 60) +"0").slice(0, 2)
+    let hour = Math.floor((starstartTimeime + (i*30)) /60);
+    let minute = (((starstartTimeime + i*30 ) % 60) +"0").slice(0, 2)
 
-    var tempValue = 0;
+    let tempValue = 0;
     tempdata = 0;
 
     if(data[i].start !=0 ){
@@ -69,7 +69,7 @@ for (var i = 0; i <= (endTime-startTime) / 60 ; i++){
     }
 
     if(tempValue < 0 && tempdata == 0 ){
-        for (var j = i; j < (endTime-startTime) / 60; j++){
+        for (let j = i; j < (endTime-starstartTimeime) / 60; j++){
           tempdata = data[j].start-(data[j-1].start + data[j-1].duration);
           if(tempdata < 0){
             count++;
@@ -92,5 +92,3 @@ for (var i = 0; i <= (endTime-startTime) / 60 ; i++){
 
 
 }
-
-
