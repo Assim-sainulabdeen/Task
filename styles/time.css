@@ -26,9 +26,7 @@ body{
     height: 1200px;
 }
 
-.clear{
-    clear: both;
-}
+
 .moveLeft{
     float: left;
 }
@@ -49,9 +47,16 @@ body{
 
 #timecontent{
     width: 3%;
+    float: left;
 }
 #tasks{
     width: 96%;
+    float: left;
+    height: 1200px;
+    margin-left: 5px;
+}
+.clear{
+    clear: both;
 }
 
 .bodyBackgrounColor{

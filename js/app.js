@@ -4,7 +4,7 @@ let data = [
     start: 0,
     duration: 15,
     title: "Exercise"
-    }, 
+    },
     {
     start: 25,
     duration: 30,
@@ -14,7 +14,7 @@ let data = [
     start: 30,
     duration: 30,
     title: "Plan day"
-    }, 
+    },
     {
     start: 60,
     duration: 15,
@@ -85,39 +85,57 @@ for (let i =0 ; i < time.length; i++){
 
 for (let i = 0; i< data.length; i++){
 
-    let height = "height:"+ (data[i].duration)*2+"px";
+    let height = "height:" + (data[i].duration)*2+"px";
+    let topMargin ="top:" + (data[i].start)*2+"px";
+    let leftMargin ="left:50%";
+
+    let gap = "left:0";
 
 
-    // let sample = 0;
-    // if(data[i].start == 0){
-        // $("#tasks").append(`
-        //     <div class="fs-13 bodyBackgrounColor borderColor" style="${height}">${data[i].title}</div>
-        //  `);
 
+    //This is made using float 
 
-         if ( (i-1) >=0 && data[i].start < ( data[i-1].start + data[i-1].duration) ){
-                $("#tasks").append(`
-                    <div class="fs-13 bodyBackgrounColor borderColor w-50 float-end" style="${height};" >${data[i].title}</div>
-                `)
-         }else{
-            $("#tasks").append(`
-            <div class="fs-13 bodyBackgrounColor borderColor w-100 " style="${height};" >${data[i].title}</div>
+    // if ( (i-1) >=0 && data[i].start < ( data[i-1].start + data[i-1].duration) ){
+    //     $("#tasks").append(`
+    //         <div class="fs-13 bodyBackgrounColor borderColor w-50 float-end position-absolute" style="${height};${topMargin}" >${data[i].title}</div>
+    //     `)
+    // }else{
+    //     $("#tasks").append(`
+    //     <div class="fs-13 bodyBackgrounColor borderColor w-100 position-absolute" style="${height}; ${topMargin}" >${data[i].title}</div>
+    //     `)
+    // }
+
+    // Made using position
+
+    // if ( (i-1) >=0 && data[i].start < ( data[i-1].start + data[i-1].duration) ){
+    //     $("#tasks").append(`
+    //         <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
+    //     `)
+
+    // }
+    // else{
+    //     $("#tasks").append(`
+    //     <div class="fs-13 bodyBackgrounColor borderColor w-0 position-absolute" style="${height}; ${topMargin}" >${data[i].title}</div>
+    //     `)
+    // }
+
+    // console.log(`i=${i} -- data[i].start=${data[i].start} -- title=${data[i].title}`)
+    // if(i-1 >=0) console.log("data[i-1].start + data[i-1].duration",data[i-1].start + data[i-1].duration)
+    if ( ((i-1) >=0) && (data[i].start < ( data[i-1].start + data[i-1].duration)) || (data[i+1].start < ( data[i].start + data[i].duration)) )
+    
+    {
+        // console.log("Width - 50")
+        $("#tasks").append(`
+        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
         `)
-         }
-    // if(start[i] < start+dur [i-1]) 
-    //     // its overlapping
-    //     // show event - float right, width 50
-    // else
-    //     // Not overlapping
-    //     // show event - width 100
         
-        
-    // }else if(data[i].start !=0){
-    //     sample =  data[i].start-(data[i-1].start + data[i-1].duration)
-    // }
+    }
+    else{
+        // console.log("Width - 100")
+        $("#tasks").append(`
+        <div class="fs-13 bodyBackgrounColor borderColor w-100 position-absolute" style="${height}; ${topMargin}" >${data[i].title}</div>
+        `)
+    }
+   
 
-    // if (data[i].start != 0){
-    //     sample =  data[i].start - (data[i-1].start + data[i-1].duration)
-    //     console.log(sample)
-    // }
 }
