@@ -99,38 +99,71 @@ for (let i = 0; i< data.length; i++){
     {
         // console.log("Width - 50")
 
-        if((data[i].start < ( data[i+1].start + data[i+1].duration))){
-            $("#tasks").append(`
-            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
-            `)
-        }else{
-            $("#tasks").append(`
-            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${gap}" >${data[i].title}</div>
-       `)
-    //     }
-    // $("#tasks").append(`
-    // <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
-    // `)
-
-    //     if(data[i-1].start<data[i].start<data[i+1].start){
+    //     if((data[i+1].start < ( data[i].start + data[i].duration))){
     //         $("#tasks").append(`
-    //         <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin};${gap}" >${data[i].title}</div>
+    //         <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
     //         `)
-    //     }
-        
-    // $("#tasks").append(`
-    //          <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${gap}" >${data[i].title}</div>
+    //     }else{
+    //         $("#tasks").append(`
+    //         <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${gap}" >${data[i].title}</div>
     //    `)
+    //     }
 
-        
-        
-    }}
+
+        // if(data[i].start > data[i-1].start){
+        //     $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin};${gap}" >${data[i].title}</div>
+        //     `)
+        // }
+    
+        // $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
+        // `)
+
+        let data2 = [];
+        data2.push(data[i]);
+
+        let data3 = [...data2];
+
+        // if(((i-1) >=0) && (data[i].start < ( data[i-1].start + data[i-1].duration))){
+        //     $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${gap}" >${data[i].title}</div>
+        //     `)
+        // }   
+        // else{
+        //     $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
+        // `)
+        // }
+
+        // if((i-1>=0) && data[i].start < (data[i-1].start + data[i-1].duration) && data[i+1].start < data[i].start + data[i].duration){
+        //     $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
+        // `)
+        // }
+        // else if(((i-1) >=0) && (data[i].start < ( data[i-1].start + data[i-1].duration))){
+        //     $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${gap}" >${data[i].title}</div>
+        //     `)
+        // }
+        // else{
+        //     $("#tasks").append(`
+        //     <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
+        // `)
+        // }
+      
+
+    
+            
+    }
     else{
         // console.log("Width - 100")
         $("#tasks").append(`
         <div class="fs-13 bodyBackgrounColor borderColor w-100 position-absolute" style="${height}; ${topMargin}" >${data[i].title}</div>
         `)
     }
+
+    
    
 
 }
