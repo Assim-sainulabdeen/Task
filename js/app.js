@@ -99,14 +99,14 @@ for (let i = 0; i< data.length; i++){
     {
         // console.log("Width - 50")
 
-    //     if((data[i].start < ( data[i+1].start + data[i+1].duration))){
-    //         $("#tasks").append(`
-    //         <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
-    //         `)
-    //     }else{
-    //         $("#tasks").append(`
-    //         <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${gap}" >${data[i].title}</div>
-    //    `)
+        if((data[i].start < ( data[i+1].start + data[i+1].duration))){
+            $("#tasks").append(`
+            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
+            `)
+        }else{
+            $("#tasks").append(`
+            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${gap}" >${data[i].title}</div>
+       `)
     //     }
     // $("#tasks").append(`
     // <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height};${topMargin};${leftMargin}" >${data[i].title}</div>
