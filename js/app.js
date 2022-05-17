@@ -2,7 +2,7 @@
 let data = [
     {
     start: 0,
-    duration: 15,
+    duration: 30,
     title: "Exercise"
     },
     {
@@ -79,9 +79,18 @@ for (let i =0 ; i < time.length; i++){
     }else{
         $("#timecontent").append(
             `<div class="elementHeight fs-11 moveRight">${time[i]}</div>`    
-        )
+        )    
     }  
 }
+
+for (let i = 0; i<time.length/2; i++){
+    
+    let hrtop = "top:"+ 120*i +"px"
+    $(".horizontal").append(`<hr class="position-absolute hrcolor" style=${hrtop}>`)
+    
+}
+
+
 let data2 = [];
 let gap = "left:0";
 
@@ -104,33 +113,70 @@ for (let i = 0; i< data.length; i++){
 
 }
 
-let data3 = [...data2];
-console.log(data3); 
 
+// let data3=[...data2];
 
-for(let j=0; j<data3.length; j++){
-    let height = "height:" + (data3[j].duration)*2+"px";
-    let topMargin ="top:" + (data3[j].start)*2+"px";
-    let leftMargin ="left:50%";
-    if(((j-1) >=0) && (data3[j-1].start + data3[j-1].duration >  ( data3[j].start))  ){
-        if(data3[j-1].duration ==  data3[j].duration){
-            $("#tasks").append(`
-            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
-            `)
-        }else if(data3[j].duration > data3[j - 1].duration){
-            $("#tasks").append(`
-            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
-            `)
-        }else{
-             $("#tasks").append(`
-            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin};" >${data3[j].title}</div>
-        `)
-        }
+// for(let j=0; j<data3.length; j++){
+//     let height = "height:" + (data3[j].duration)*2+"px";
+//     let topMargin ="top:" + (data3[j].start)*2+"px";
+//     let leftMargin ="left:50%";
+//     if(((j-1) >=0) && (data3[j-1].start + data3[j-1].duration >  ( data3[j].start))  ){
+//         if(data3[j-1].duration ==  data3[j].duration){
+//             $("#tasks").append(`
+//             <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
+//             `)
+//         }else
+//          if(data3[j].duration > data3[j - 1].duration){
+//             $("#tasks").append(`
+//             <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
+//             `)
+//         }else{
+//              $("#tasks").append(`
+//             <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin};" >${data3[j].title}</div>
+//         `)
+//         }
        
-    }   
-    else{
+//     }   
+//     else{
+//         $("#tasks").append(`
+//         <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin}" >${data3[j].title}</div>
+//         `)
+//     }
+// }
+var data3 = [...data2];
+for(let j = 0; j < data3.length; j++){
+    for (let k = 0; k < j; k++){
+        let currentValue = data3[j].start;
+        let ifOverlapping = currentValue- (data3[k].start + data3[k].duration);
+        if(ifOverlapping < 0){
+            data3[j].overlapped ="left"; 
+
+            if(data3[k].overlapped == "left"){
+                data3[j].overlapped = true
+            }
+        }
+          
+
+    }
+}
+
+console.log(data3);
+
+for (let m = 0; m<data3.length; m++){
+    let height = "height:" + (data3[m].duration)*2+"px";
+    let topMargin ="top:" + (data3[m].start)*2+"px";
+    let leftMargin ="left:50%";
+    if(data3[m].overlapped == true){
         $("#tasks").append(`
-        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin}" >${data3[j].title}</div>
+        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin}" >${data3[m].title}</div>
+        `)
+    }else if((data3[m].overlapped == 'left')){
+        $("#tasks").append(`
+        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap}" >${data3[m].title}</div>
+        `)
+    }else{
+        $("#tasks").append(`
+        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin}" >${data3[m].title}</div>
         `)
     }
 }

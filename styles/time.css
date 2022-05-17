@@ -22,6 +22,13 @@ body{
     margin-bottom: 0;
 }
 
+.hrcolor{
+    color:#a5adc2;
+    opacity: 0.2;
+    z-index: 1;
+    width: 100%;
+    margin:0;
+}
 #main{
     height: 1200px;
 }
@@ -67,13 +74,7 @@ body{
     border-left: 3px solid #699ecc;
 }
 
-/* .elementHeight{
-    height: 120px;
+.visibility{
+    z-index: 1;
+    opacity: 1;
 }
-.fs-12{
-    font-size: 12px;
-}
-
-.timeColor{
-    color: #a5a7a8;
-} */
