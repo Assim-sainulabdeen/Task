@@ -112,10 +112,20 @@ for(let j=0; j<data3.length; j++){
     let height = "height:" + (data3[j].duration)*2+"px";
     let topMargin ="top:" + (data3[j].start)*2+"px";
     let leftMargin ="left:50%";
-    if(((j-1) >=0) && (data3[j].start< ( data3[j-1].start + data3[j-1].duration))){
-        $("#tasks").append(`
-        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
+    if(((j-1) >=0) && (data3[j-1].start + data3[j-1].duration >  ( data3[j].start))  ){
+        if(data3[j-1].duration ==  data3[j].duration){
+            $("#tasks").append(`
+            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
+            `)
+        }else if(data3[j].duration > data3[j - 1].duration){
+            $("#tasks").append(`
+            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
+            `)
+        }else{
+             $("#tasks").append(`
+            <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin};" >${data3[j].title}</div>
         `)
+        }
        
     }   
     else{
