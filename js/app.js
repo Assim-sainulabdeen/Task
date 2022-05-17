@@ -90,7 +90,6 @@ for (let i = 0; i< data.length; i++){
 
     let height = "height:" + (data[i].duration)*2+"px";
     let topMargin ="top:" + (data[i].start)*2+"px";
-    let leftMargin ="left:50%";
   
     if ( ((i-1) >=0) && (data[i].start < ( data[i-1].start + data[i-1].duration)) || (data[i+1].start < ( data[i].start + data[i].duration)) )
     
@@ -106,6 +105,22 @@ for (let i = 0; i< data.length; i++){
 }
 
 let data3 = [...data2];
+console.log(data3); 
 
 
-// console.log(data2);
+for(let j=0; j<data3.length; j++){
+    let height = "height:" + (data3[j].duration)*2+"px";
+    let topMargin ="top:" + (data3[j].start)*2+"px";
+    let leftMargin ="left:50%";
+    if(((j-1) >=0) && (data3[j].start< ( data3[j-1].start + data3[j-1].duration))){
+        $("#tasks").append(`
+        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${gap};" >${data3[j].title}</div>
+        `)
+       
+    }   
+    else{
+        $("#tasks").append(`
+        <div class="fs-13 bodyBackgrounColor borderColor w-50 position-absolute" style="${height}; ${topMargin}; ${leftMargin}" >${data3[j].title}</div>
+        `)
+    }
+}
