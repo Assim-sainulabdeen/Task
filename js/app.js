@@ -2,7 +2,7 @@
 let data = [
     {
     start: 0,
-    duration: 30,
+    duration: 15,
     title: "Exercise"
     },
     {
@@ -180,3 +180,9 @@ for (let m = 0; m<data3.length; m++){
         `)
     }
 }
+
+// var data3 = [...data2];
+
+// for (let m = 0; m<data3.length; m++){
+//     if((data3[m].start+data3[m].duration).i)
+// }
